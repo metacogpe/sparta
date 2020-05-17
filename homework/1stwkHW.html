@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>스파르타코딩클럽 | 1st Week</title>
+  <!-- 구글폰트 -->
+  <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+  <!-- style -->
+  <style type="text/css">
+    * {
+      font-family: 'Stylish', sans-serif;
+    }
+
+    .wrap1 {
+      width: 505px;
+      margin:  auto;
+    }
+
+    .wrap2 {
+      width: 505px;
+      margin: auto;
+      text-align: center;
+    }
+  </style>
+
+  <script>
+    function order() {
+      alert('주문이 완료되었습니다.');
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <div class="wrap1">
+    <img
+      src="https://previews.123rf.com/images/utnapistims/utnapistims1401/utnapistims140100032/25084236-%EC%96%91%EC%B4%88.jpg"
+      height="400" width="505">
+
+    <p>
+    <h1 style="font-size:24px; float: left;"> 양초를 팝니다 </h1>
+    </p>
+
+    <p>
+      <sub>&nbsp&nbsp가격: </sub> <sub style="font-size:18px;"> 3,000원 </sub> <sub>/개</sub>
+    </p>
+
+    <p>
+      <h7 style="font-size:10; float: left;">
+        이 양초는 사실상 특별한 힘을 가지고 있어요. 양초를 켜고 소원을 빌면
+        짜자잔 뭐든지 이뤄지게 된답니다. 하나 사가세요! 대나무 향이 아주 좋아요.
+      </h7>
+    </p>
+
+
+    <div class="mb-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">주문자 이름 </span>
+        </div>
+        <input type="text" class="form-control" id="ordername">
+        <div class="invalid-feedback" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">수량 </span>
+        </div>
+
+        <select class="custom-select" id="qunatity">
+          <option>--수량을 선택하세요--</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">주소</span>
+        </div>
+        <input type="text" class="form-control" id="address">
+        <div class="invalid-feedback" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">전화번호</span>
+        </div>
+        <input type="text" class="form-control" id="phoneno">
+        <div class="invalid-feedback" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="wrap2">
+    <div class="button">
+      <button type="button" onclick="order()" class="btn btn-primary">주문하기</button>
+    </div>
+  </div>
+
+</body>
