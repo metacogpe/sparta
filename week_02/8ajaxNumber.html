@@ -16,15 +16,15 @@
     <script>
         function q1() {
             // 여기에 코드를 입력하세요
-            
+
+            let target_num = $('#magicnum').val();
+            let target_url = 'http://numbersapi.com/' + target_num;
             $.ajax({
                 type: "GET",
-                url: "http://numbersapi.com",
+                url: target_url,
                 data: {},
                 success: function (response) {
-                    alert(response)
-                    
-
+                    $("#meaning").text(response);
                 }
             });
         }

@@ -23,12 +23,12 @@
 
             $.ajax({
                 type: "GET",
-                url: "",
+                url: "https://api.thecatapi.com/v1/images/search",
                 data: {},
                 success: function (response) {
-                    let caturl = response(0).url;
+                    let caturl = response[0]['url'];
 
-                    $('#img-cat').attr("src", catUrl);
+                    $('#img-cat').attr("src", caturl);
 
                 }
             });
