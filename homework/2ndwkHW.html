@@ -10,10 +10,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <title>스파르타코딩클럽 | 1st Week</title>
+  <title>스파르타코딩클럽 | 2nd Week</title>
   <!-- 구글폰트 -->
   <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
   <!-- style -->
+
+  <!-- JQuery를 import 합니다 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
   <style type="text/css">
     * {
       font-family: 'Stylish', sans-serif;
@@ -21,7 +25,7 @@
 
     .wrap1 {
       width: 505px;
-      margin:  auto;
+      margin: auto;
     }
 
     .wrap2 {
@@ -29,12 +33,85 @@
       margin: auto;
       text-align: center;
     }
+
+    .dollartowon {
+      width: 505px;
+      margin: auto;
+      text-align: left;
+      color: blue;
+    }
   </style>
 
   <script>
-    function order() {
-      alert('주문이 완료되었습니다.');
+
+    function phonenumber(inputtxt) 
+    {
+      let phoneno = /^\(?([010]{3})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+      if(inputtxt.match(phoneno)) 
+      {
+        // return true;        
+        alert("주문이 완료되었습니다.");
+      }
+      else 
+      {
+        return false;
+      }
     }
+
+    function order() {
+
+      if ($('#ordername').val() == '') 
+      {
+        alert('이름을 입력해 주세요.');
+      }
+
+      else if (isNaN($('#qunatity').val())==true) 
+      {
+        alert('수량을 입력해 주세요.');
+      }
+
+      else if ($('#address').val() =='') 
+      {
+        alert('주소를 입력해 주세요.');
+      }
+
+      else if ($('#phoneno').val() =='') 
+      {
+        alert('전화번호를 입력해 주세요.');
+      }
+
+      else if (phonenumber($('#phoneno').val()) == false) 
+      {
+        alert('휴대폰 번호 입력 형식이 틀립니다.\n 010-0000-0000으로 입력해 주세요.');
+      }
+
+    }
+    
+
+
+
+
+
+
+    function currentexchange() {
+      $.ajax
+        (
+          {
+            type: "GET",
+            url: "https://api.manana.kr/exchange/rate.json",
+            data: {},
+            success: function (response) {
+              $("#exchange").text("달러-원 환율 : " + response[1]['rate']);
+
+            }
+          }
+        );
+    }
+    currentexchange();
+
+
+
+
   </script>
 
 </head>
@@ -55,30 +132,38 @@
     </p>
 
     <p>
-      <h6 style="font-size:10; float: left;">
-        이 양초는 사실상 특별한 힘을 가지고 있어요. 양초를 켜고 소원을 빌면
-        짜자잔 뭐든지 이뤄지게 된답니다. 하나 사가세요! 대나무 향이 아주 좋아요.
-      </h6>
-      <h6 style="font-size:10; float: left; color: blue">
-        달러-월 환율 :
-      </h6>
+    <h6 style="font-size:10; float: left;">
+      이 양초는 사실상 특별한 힘을 가지고 있어요. 양초를 켜고 소원을 빌면
+      짜자잔 뭐든지 이뤄지게 된답니다. 하나 사가세요! 대나무 향이 아주 좋아요.
+    </h6>
     </p>
+
+    <p>
+    <div class="dollartowon" id="exchange"></div>
+    </p>
+
+
+
 
 
     <div class="mb-3">
       <div class="input-group">
+
         <div class="input-group-prepend">
           <span class="input-group-text">주문자 이름 </span>
         </div>
+
         <input type="text" class="form-control" id="ordername">
         <div class="invalid-feedback" style="width: 100%;">
         </div>
+
       </div>
     </div>
 
 
     <div class="mb-3">
       <div class="input-group">
+
         <div class="input-group-prepend">
           <span class="input-group-text">수량 </span>
         </div>
@@ -88,8 +173,6 @@
           <option>1</option>
           <option>2</option>
           <option>3</option>
-          <option>4</option>
-          <option>5</option>
         </select>
 
       </div>
