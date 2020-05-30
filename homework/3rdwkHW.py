@@ -18,9 +18,7 @@ for music in musics:
     # movie 안에 a 가 있으면,
     rank = music.select_one('td.number')  
     #rank = rank.get_text(" ", strip=True) 
-
+    rank.span.decompose()
     title = music.select_one('td.info > a.title')
     singer = music.select_one('td.info > a.artist')
-    if title is not None:
-        # a의 text를 찍어본다.
-        print (rank.get_text(" ", strip = True), title.text, singer.text)
+    print (rank.text.strip(), title.text.strip(), singer.text.strip())
