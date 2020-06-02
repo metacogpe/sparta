@@ -16,3 +16,4 @@ condition_users = list(db.users.find({'age':21}))
 print(condition_users)
 
 db.users.update_one({'name':'bobby'},{'$set':{'age':19}})
+db.users.delete_one
